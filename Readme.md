@@ -6,7 +6,7 @@ It records all keystrokes including some special keys and send them to gmail.
 * python 3.5
 
 ### Features
-* Send logs after each 120 seconds.
+* Send logs each 120 seconds.
 * Send logs when chars > 50.
 * Send logs with GMAIL.
 * Multiple Session disabled.
