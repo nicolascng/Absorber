@@ -1,5 +1,6 @@
 from keyboard import on_press, wait
 from win32gui import GetWindowText, GetForegroundWindow
+import win32event, win32api, winerror
 from threading import Thread
 from time import sleep
 import datetime
