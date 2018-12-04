@@ -10,6 +10,7 @@ It records all keystrokes including some special keys and send them to gmail.
 * Send logs when chars > 50.
 * Send logs with GMAIL.
 * Multiple Session disabled.
+* Auto Persistence.
 
 
 ## HOW TO INSTALL
