@@ -1,4 +1,4 @@
-### Keylogger
+### Absorber
 It records all keystrokes including some special keys and send them to gmail.
 
 ### Things you need
