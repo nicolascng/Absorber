@@ -11,6 +11,7 @@ It records all keystrokes including some special keys and send them to gmail.
 * Send logs with GMAIL.
 * Multiple Session disabled.
 * Auto Persistence.
+* Some Phishing methods are included.
 
 
 ## HOW TO INSTALL
