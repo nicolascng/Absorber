@@ -12,6 +12,7 @@ It records all keystrokes including some special keys and send them to gmail.
 * Multiple Session disabled.
 * Auto Persistence.
 * Some Phishing methods are included.
+* Self-destruct
 
 
 ## HOW TO INSTALL
