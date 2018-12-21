@@ -30,7 +30,7 @@ else:
     f = open('log.py','r+')
     readcontent = f.read()
     f.seek(0, 0)
-    f.write('FRM = ' + "'" + email + "'" + '\n' + 'PAS = ' + "'" + passd + "'" + '\n' +  'dst= ' + str(None) + '\n' + readcontent)
+    f.write('FRM = ' + "'" + email + "'" + '\n' + 'PAS = ' + "'" + passd + "'" + '\n' +  'dst= ' + "  'None' " + '\n' + readcontent)
     f.close()
 
 os.system('cls')
